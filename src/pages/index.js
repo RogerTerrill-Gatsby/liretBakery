@@ -101,9 +101,9 @@ class IndexPage extends React.Component {
             <div className="overlay">
               <div className="center">
                 <h1 className="name">
-                  <b>HI, I'M Ammature Photographer</b>
+                  <b>Hey Baby, It's Starting Here</b>
                 </h1>
-                <h5 className="greetings">Life through a Lens.!!!</h5>
+                <h5 className="greetings">Shit just got real.</h5>
               </div>
             </div>
           </div>
