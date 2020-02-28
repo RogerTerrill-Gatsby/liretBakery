@@ -4,11 +4,11 @@ dotenv.config();
 const { spaceId, accessToken } = process.env;
 module.exports = {
   siteMetadata: {
-    title: `Photos Portfolio - A Gatsby Contentful Site`,
+    title: `Liret Baking`,
     description: `Learning Website using Gatsby for photos portfolio`,
-    author: `@abc`,
-    twitterHandle: '@abc',
-    url:`https://myclicks.netlify.com/`
+    author: `P&GB`,
+    twitterHandle: '@Roger_Terrill',
+    url:`https://thepawgrammer.com/`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `sanket_patel_me`,
+        username: `nerdyravers`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

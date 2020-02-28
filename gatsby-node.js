@@ -5,24 +5,24 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-        allContentfulPortfolio {
+        allContentfulRecipes {
         edges {
           node {
-            slug
-            blogTitle
+            recipeSlug
+            recipeTitle
           }
         }
       }
     }
   `).then(result => {
-    result.data.allContentfulPortfolio.edges.forEach(({ node }) => {
+    result.data.allContentfulRecipes.edges.forEach(({ node }) => {
       createPage({
-        path: node.slug,
-        component: path.resolve(`./src/template/blog-single.js`),
+        path: node.recipeSlug,
+        component: path.resolve(`./src/template/recipe-single.js`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
-          slug: node.slug,
+          slug: node.recipeSlug,
         },
       })
     })
@@ -34,7 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 	const { createNodeField } = boundActionCreators;
 
-	if (node.internal.type === `contentfulPortfolio`) {
+	if (node.internal.type === `contentfulRecipes`) {
 		const value = createFilePath({ node, getNode });
 		createNodeField({
 			name: `slug`,
