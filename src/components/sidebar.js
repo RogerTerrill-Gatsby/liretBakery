@@ -10,10 +10,10 @@ export class Sidebar extends Component {
         <div>
           <span>
                      <Link key={blog.slug + "1"} to={blog.slug} >
-                            <img src={blog.blogImage.file.url}  alt="blogimage" className="img-rounded"/>           
+                            <img src={blog.recipeImage.file.url}  alt="blogimage" className="img-rounded"/>           
                     </Link>
-                      <Link key={blog.slug + "a"}  to={blog.slug} ><span>{blog.blogTitle}</span></Link> 
-                      <span className="meta">{blog.blogPublishDate}</span>
+                      <Link key={blog.recipeSlug + "a"}  to={blog.recipeSlug} ><span>{blog.recipeTitle}</span></Link> 
+                      <span className="meta">{blog.recipePublishDate}</span>
           </span> 
         </div>
       )
