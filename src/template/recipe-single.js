@@ -81,7 +81,7 @@ class BlogPostTemplate extends Component {
                 <div className="post-content">
                   <h2 className="section-headline"> {singlerecipe.recipeTitle} </h2>   
                   <p dangerouslySetInnerHTML={{
-                   __html: singlerecipe.childContentfulPortfolioBlogDescriptionTextNode.childMarkdownRemark.html}} />
+                   __html: singlerecipe.recipeTitle}} />
                 </div>     
               </div>
               <div className="col-md-4 offset-md-1 ">

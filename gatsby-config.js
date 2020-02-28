@@ -5,7 +5,7 @@ const { spaceId, accessToken } = process.env;
 module.exports = {
   siteMetadata: {
     title: `Liret Baking`,
-    description: `Learning Website using Gatsby for photos portfolio`,
+    description: `Baking, Jewerly and Plants`,
     author: `P&GB`,
     twitterHandle: '@Roger_Terrill',
     url:`https://thepawgrammer.com/`
