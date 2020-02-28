@@ -20,8 +20,8 @@ class BlogPostTemplate extends Component {
     const post = this.props.data.allContentfulRecipes.edges
     const disqusShortname = "myclicks-1";
     const disqusConfig = {
-      identifier: singlerecipe.blogId,
-      title: singlerecipe.blogTitle,
+      identifier: singlerecipe.recipeId,
+      title: singlerecipe.recipeTitle,
     };
 
     const socialConfigss = {   
@@ -64,7 +64,7 @@ class BlogPostTemplate extends Component {
     }
     return (
       <Layout>
-        <Helmet title={`${singlerecipe.blogTitle}`} />
+        <Helmet title={`${singlerecipe.recipeTitle}`} />
         <div className="inner-blog-post pad-40">
           <div className="container">
             <div className="row">
@@ -72,14 +72,14 @@ class BlogPostTemplate extends Component {
               <div className="col-lg-7 col-md-7">
                 <div className="entry-media">
                   <Img
-                    fluid={singlerecipe.blogImage.fluid}
+                    fluid={singlerecipe.recipeImage.fluid}
                     backgroundColor={"#f4f8fb"}
                   />
                     {SliderImage}
                   
                 </div>                   
                 <div className="post-content">
-                  <h2 className="section-headline"> {singlerecipe.blogTitle} </h2>   
+                  <h2 className="section-headline"> {singlerecipe.recipeTitle} </h2>   
                   <p dangerouslySetInnerHTML={{
                    __html: singlerecipe.childContentfulPortfolioBlogDescriptionTextNode.childMarkdownRemark.html}} />
                 </div>     
@@ -112,30 +112,17 @@ class BlogPostTemplate extends Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query blogPostQuery($slug: String) {
+  query recipePostQuery($slug: String) {
           site {
         siteMetadata {
           url
           twitterHandle
         }
       }
-    contentfulPortfolio(slug: { eq: $slug }) {
-      blogTitle  
-      slug
-      childContentfulPortfolioBlogDescriptionTextNode{
-        childMarkdownRemark{
-          html
-        }
-      }
-      galleryImage{
-        file{
-          url
-        }
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-      }
-      blogImage {
+    contentfulRecipes(recipeSlug: { eq: $slug }) {
+      recipeTitle  
+      recipeSlug
+      recipeImage {
         file {
           url
         }
@@ -145,14 +132,16 @@ export const pageQuery = graphql`
       }
     }
 
-    allContentfulPortfolio(limit:5){
+    allContentfulRecipes(limit:5){
       edges{
         node{    
-            blogTitle
-            blogShortDesc
-            blogPublishDate
-            slug         
-          blogImage{
+            recipeTitle
+            recipeContent {
+              recipeContent
+            }
+            recipePublishDate
+            recipeSlug         
+          recipeImage{
             file{
               url
             }
@@ -163,6 +152,5 @@ export const pageQuery = graphql`
         }
       }
     }
-   
   }
 `
